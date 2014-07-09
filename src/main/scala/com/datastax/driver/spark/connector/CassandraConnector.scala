@@ -201,10 +201,14 @@ object CassandraConnector extends Logging {
   def apply(host: InetAddress,
             nativePort: Int = CassandraConnectorConf.DefaultNativePort,
             rpcPort: Int = CassandraConnectorConf.DefaultRpcPort,
-            authConfig: AuthConf = NoAuthConf) = {
+            authConf: AuthConf = NoAuthConf) = {
 
-    val config = CassandraConnectorConf.apply(host, nativePort, rpcPort, authConfig)
+    val config = CassandraConnectorConf.apply(host, nativePort, rpcPort, authConf)
     new CassandraConnector(config)
+  }
+
+  def evictCache() {
+    clusterCache.evict()
   }
 
 }
