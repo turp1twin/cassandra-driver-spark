@@ -2,7 +2,6 @@ package com.datastax.driver.spark.connector
 
 import java.lang.reflect.{Proxy, Method, InvocationHandler}
 import com.datastax.driver.core.{RegularStatement, SimpleStatement, Session}
-import org.apache.avro.generic.GenericData.StringType
 
 /** Wraps a `Session` and intercepts:
   *  - `close` method to invoke `afterClose` handler
