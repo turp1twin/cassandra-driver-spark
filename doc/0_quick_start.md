@@ -18,7 +18,7 @@ Configure a new Scala project with the following dependencies:
  - DataStax Cassandra driver for your Cassandra version 
  
 This driver does not depend on the Cassandra server code.   
-For a detailed dependency list, see project dependencies in the `build.sbt` file.
+For a detailed dependency list, see project dependencies in the `project/CassandraSparkBuild.scala` file.
 
 Add the cassandra-driver-spark.jar and its dependency jars to the following classpaths:
 
@@ -55,7 +55,7 @@ Create a `SparkContext`. Substitute `127.0.0.1` with the actual address of your 
 
 Enable Cassandra-specific functions on the `SparkContext` and `RDD`:
      
-    import com.datastax.driver.spark._
+    import com.datastax.spark.connector._
 
 ### Loading and analyzing data from Cassandra
 Use the `sc.cassandraTable` method to view this table as a Spark `RDD`:
